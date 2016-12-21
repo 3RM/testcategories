@@ -11,9 +11,11 @@
   |
  */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::get('/posts', function () {
+//    return view('welcome');
+//});
+
+Route::get('/posts', 'IndexController@index');
 
 Route::group(['prefix' => 'admin/categories'], function () {
     Route::get('/', 'CategoryController@index')->name('cat_admin');

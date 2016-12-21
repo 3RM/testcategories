@@ -36,9 +36,22 @@
         </style>
     </head>
     <body>
+	<table>
+	<?php
+	    
+	    foreach ($categories as $category) {
+		echo "<b>CATEGORY ".$category['name']."</b></br>";
+		foreach ($category->posts as $post){
+		    echo $post['title']."</br>";
+		    echo $post['content']."</br>";
+		}
+		echo "</br>";
+	    }
+	?>
+	</table>
         <div class="container">
             <div class="content">
-                <div class="title">Laravel 5</div>
+                <div class="title"></div>
             </div>
         </div>
     </body>

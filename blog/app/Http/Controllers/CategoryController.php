@@ -26,9 +26,17 @@ class CategoryController extends Controller {
     }
 
     public function destroy(Category $category) {
-        $category->delete();
+	$category->posts()->delete();// удаляем посты из БД
+        $category->delete();// удаляем саму категорию
 
         return redirect()->route('cat_admin');
     }
+    
+//    public function show_category(){
+//	$posts = App\Category::find(3)->posts;
+//	return view('welcome', [
+//            'posts' => $posts,
+//        ]);
+//    }
 
 }
