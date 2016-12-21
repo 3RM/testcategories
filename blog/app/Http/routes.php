@@ -21,10 +21,14 @@ Route::group(['prefix' => 'admin/categories'], function () {
     Route::get('/', 'CategoryController@index')->name('cat_admin');
     Route::post('/', 'CategoryController@store');
     Route::delete('delete/{category}', 'CategoryController@destroy');
+    Route::get('/{cat}','CategoryController@edit');
+    Route::post('/{cat}','CategoryController@save');
 });
 
 Route::group(['prefix' => 'admin/posts'], function () {
     Route::get('/', 'PostController@index')->name('post_admin');
     Route::post('/', 'PostController@store');
     Route::delete('delete/{post}', 'PostController@destroy');
+    
+    //Route::get('/edit','PostController@edit');
 });

@@ -32,6 +32,21 @@ class CategoryController extends Controller {
         return redirect()->route('cat_admin');
     }
     
+    public function edit(Category $category){
+	return view('admin/edit', [
+            'category' => $category,
+        ]);
+    }
+    
+     public function save(Request $request) {
+        $this->validate($request, [
+            'name' => 'required|max:255',
+        ]);
+        $category = Category::find($request->id);
+        $category->name = $request->name;
+        $category->save();
+        return redirect()->route('cat_admin');
+    }
 //    public function show_category(){
 //	$posts = App\Category::find(3)->posts;
 //	return view('welcome', [

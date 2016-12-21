@@ -27,6 +27,7 @@
                         <h3 class="panel-title">			
                             <span>{{$category->name}} ID: {{$category->id}}</span>	</br>		
                             <div class="label label-info">{{$category->created_at}}</div>
+			    <div><a href="categories/{{$category->id}}">Редактировать</a></div>
                             <div>
                                 <form action="categories/delete/{{ $category->id }}" method="POST">
                                 {{ csrf_field() }}
