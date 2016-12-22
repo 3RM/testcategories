@@ -16,6 +16,9 @@
 //});
 
 Route::get('/posts', 'IndexController@index');
+Route::get('admin/uploadimage','UploadimageController@index');
+Route::post('admin/uploadimage','UploadimageController@store');
+Route::get('admin/gallery','UploadimageController@showgallery');
 
 Route::group(['prefix' => 'admin/categories'], function () {
     Route::get('/', 'CategoryController@index')->name('cat_admin');
