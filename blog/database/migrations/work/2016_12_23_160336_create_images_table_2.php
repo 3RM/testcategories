@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePostsTableWork extends Migration
+class CreateImagesTable2 extends Migration
 {
     /**
      * Run the migrations.
@@ -12,11 +12,9 @@ class CreatePostsTableWork extends Migration
      */
     public function up()
     {
-        Schema::create('posts', function (Blueprint $table) {
+        Schema::create('images', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('title');
-            $table->text('content');
-            $table->integer('category_id')->index();
+            $table->string('url');
             $table->timestamps();
         });
     }
@@ -28,6 +26,6 @@ class CreatePostsTableWork extends Migration
      */
     public function down()
     {
-        Schema::drop('posts');
+        Schema::drop('images');
     }
 }

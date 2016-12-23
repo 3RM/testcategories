@@ -15,29 +15,29 @@
 //    return view('welcome');
 //});
 
-Route::get('/posts', 'IndexController@index');// Вывод категорий и связаных с каждой из них постов
+Route::get('/posts', 'IndexController@index'); // Вывод категорий и связаных с каждой из них постов
 
 Route::group(['prefix' => 'admin/uploadimage'], function () {
-	Route::get('/','UploadimageController@index');//Форма загрузки картинки
-	Route::post('/','UploadimageController@store');//Сохранение картинки
+    Route::get('/', 'UploadimageController@index'); //Форма загрузки картинки
+    Route::post('/', 'UploadimageController@store'); //Сохранение картинки
 });
-	Route::get('admin/gallery','UploadimageController@showgallery');//Галерея
+Route::get('admin/gallery', 'UploadimageController@showgallery'); //Галерея
 
 Route::group(['prefix' => 'admin/categories'], function () {
     Route::get('/', 'CategoryController@index')->name('cat_admin');
     Route::post('/', 'CategoryController@store');
     Route::delete('delete/{category}', 'CategoryController@destroy');
-    Route::get('/{cat}','CategoryController@edit');
-    Route::post('/{cat}','CategoryController@save');
-	Route::get('/editcat/{category}','CategoryController@edit');
-	Route::post('/editcat/{category}','CategoryController@save');
+    Route::get('/{cat}', 'CategoryController@edit');
+    Route::post('/{cat}', 'CategoryController@save');
+    Route::get('/editcat/{category}', 'CategoryController@edit');
+    Route::post('/editcat/{category}', 'CategoryController@save');
 });
 
 Route::group(['prefix' => 'admin/posts'], function () {
     Route::get('/', 'PostController@index')->name('post_admin');
     Route::post('/', 'PostController@store');
     Route::delete('delete/{post}', 'PostController@destroy');
-    
-    Route::get('/editpost/{post}','PostController@edit');
-	Route::post('/editpost/{post}','PostController@save');
+
+    Route::get('/editpost/{post}', 'PostController@edit');
+    Route::post('/editpost/{post}', 'PostController@save');
 });
