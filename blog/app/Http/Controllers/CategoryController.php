@@ -33,9 +33,10 @@ class CategoryController extends Controller {
     }
     
     public function edit(Category $category){
-	return view('admin/edit', [
-            'category' => $category,
-        ]);
+		
+		return view('admin/editcat', [
+				'category' => $category,
+			]);
     }
     
      public function save(Request $request) {
@@ -47,11 +48,5 @@ class CategoryController extends Controller {
         $category->save();
         return redirect()->route('cat_admin');
     }
-//    public function show_category(){
-//	$posts = App\Category::find(3)->posts;
-//	return view('welcome', [
-//            'posts' => $posts,
-//        ]);
-//    }
 
 }

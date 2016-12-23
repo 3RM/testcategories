@@ -37,5 +37,25 @@ class PostController extends Controller {
 
         return redirect()->route('post_admin');
     }
+	
+	public function edit(Post $post){
+		
+		return view('admin/editpost', [
+				'post' => $post,
+			]);
+    }
+    
+     public function save(Request $request) {
+        $this->validate($request, [
+            'title' => 'required|max:255',
+			'content' => 'required',
+        ]);
+        $post = Post::find($request->id);
+        $post->title = $request->title;
+		$post->content = $request->content;
+		$post->category_id = $request->category_id;
+        $post->save();
+        return redirect()->route('post_admin');
+    }
 
 }

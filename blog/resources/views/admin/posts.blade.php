@@ -43,7 +43,7 @@
                         <hr/>
                         {{$post->content}}
                         <div class="pull-right">
-
+						<div><a href="posts/editpost/{{ $post->id }}">Редактировать</a></div>
                             <form action="posts/delete/{{ $post->id }}" method="POST">
                                 {{ csrf_field() }}
                                 {{ method_field('DELETE') }}
